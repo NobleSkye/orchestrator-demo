@@ -28,9 +28,9 @@ To join the SkyeNetwork server, follow these simple steps:
 
 Join us today and experience the boundless opportunities that await in SkyeNetwork!
 
-[Website](https://sunrisemc.net/) | [Discord](https://discord.sunrisemc.net) | [World Map](https://map.sunrisemc.net/)
+[Website](https://skyemc.net/) | [Discord](https://discord.skyemc.net) | [World Map](https://map.skyemc.net/)
 
-For EU players, use **play.sunrisemc.net**, and for US players, use **fun.sunrisemc.net**.
+For EU players, use **play.skyemc.net**, and for US players, use **fun.skyemc.net**.
 
 
 
