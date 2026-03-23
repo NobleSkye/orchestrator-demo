@@ -1,0 +1,44 @@
+# ===========================================================================
+# Velocity AutoServer Plugin Configuration (Example)
+# ===========================================================================
+# Place this at: /opt/minecraft/velocity/autoserver/config.toml
+#
+# This file is managed by the orchestrator. Static entries can be added
+# manually below. Dynamic entries are appended automatically by the
+# orchestrator when servers are provisioned.
+#
+# The orchestrator marks its managed sections with comments like:
+#   # managed-by-orchestrator:<server_id>
+# Do NOT manually edit those sections.
+# ===========================================================================
+
+# ---------------------------------------------------------------------------
+# Static Server Templates (used by AutoServer for on-demand provisioning)
+# ---------------------------------------------------------------------------
+# These entries tell AutoServer how to start a new server when a player
+# tries to connect to a gamemode that doesn't have a running instance.
+
+[servers.bedwars-dynamic]
+start = "python3 /opt/minecraft/scripts/autoserver_helper.py start bedwars"
+stop = "python3 /opt/minecraft/scripts/autoserver_helper.py stop bedwars"
+addressFile = "/tmp/autoserver-bedwars.addr"
+startupDelay = 10
+timeout = 300
+
+[servers.skywars-dynamic]
+start = "python3 /opt/minecraft/scripts/autoserver_helper.py start skywars"
+stop = "python3 /opt/minecraft/scripts/autoserver_helper.py stop skywars"
+addressFile = "/tmp/autoserver-skywars.addr"
+startupDelay = 10
+timeout = 300
+
+[servers.lobby-dynamic]
+start = "python3 /opt/minecraft/scripts/autoserver_helper.py start lobby"
+stop = "python3 /opt/minecraft/scripts/autoserver_helper.py stop lobby"
+addressFile = "/tmp/autoserver-lobby.addr"
+startupDelay = 10
+timeout = 300
+
+# ---------------------------------------------------------------------------
+# Dynamic Servers (auto-managed by orchestrator — do not edit below this line)
+# ---------------------------------------------------------------------------

@@ -1,0 +1,43 @@
+[Unit]
+Description=Minecraft Node Agent
+Documentation=https://github.com/NobleSkye/SkyeNetwork
+After=network-online.target podman.socket
+Wants=network-online.target
+Requires=podman.socket
+
+[Service]
+Type=simple
+User=minecraft
+Group=minecraft
+WorkingDirectory=/opt/minecraft
+
+# Environment configuration
+EnvironmentFile=/opt/minecraft/.env
+
+ExecStart=/usr/bin/python3 /opt/minecraft/node_agent.py
+Restart=on-failure
+RestartSec=10
+StartLimitBurst=5
+StartLimitIntervalSec=60
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=mc-node-agent
+
+# Security hardening
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/minecraft
+PrivateTmp=true
+
+# Allow access to Podman socket and runtime
+SupplementaryGroups=podman
+
+# Resource limits
+LimitNOFILE=65536
+MemoryMax=256M
+
+[Install]
+WantedBy=multi-user.target

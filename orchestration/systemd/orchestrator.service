@@ -1,0 +1,39 @@
+[Unit]
+Description=Minecraft Server Orchestrator
+Documentation=https://github.com/NobleSkye/SkyeNetwork
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=minecraft
+Group=minecraft
+WorkingDirectory=/opt/minecraft
+
+# Environment configuration
+EnvironmentFile=/opt/minecraft/.env
+
+ExecStart=/usr/bin/python3 /opt/minecraft/orchestrator.py
+Restart=on-failure
+RestartSec=10
+StartLimitBurst=5
+StartLimitIntervalSec=60
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=mc-orchestrator
+
+# Security hardening
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/minecraft
+PrivateTmp=true
+
+# Resource limits
+LimitNOFILE=65536
+MemoryMax=512M
+
+[Install]
+WantedBy=multi-user.target
