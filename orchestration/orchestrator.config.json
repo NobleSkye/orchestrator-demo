@@ -1,0 +1,35 @@
+{
+  "nodes": [
+    {
+      "id": "node-1",
+      "host": "10.0.0.2",
+      "port": 5000,
+      "max_servers": 10,
+      "type": "minigame",
+      "labels": {
+        "memory": "high",
+        "region": "us-east"
+      }
+    },
+    {
+      "id": "node-2",
+      "host": "10.0.0.3",
+      "port": 5000,
+      "max_servers": 8,
+      "type": "minigame",
+      "labels": {
+        "memory": "medium",
+        "region": "us-east"
+      }
+    }
+  ],
+  "auto_shutdown": {
+    "idle_timeout_minutes": 5,
+    "max_lifetime_hours": 2
+  },
+  "templates": {
+    "bedwars": "/opt/minecraft/templates/bedwars",
+    "skywars": "/opt/minecraft/templates/skywars",
+    "lobby": "/opt/minecraft/templates/lobby"
+  }
+}
