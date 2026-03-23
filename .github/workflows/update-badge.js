@@ -16,7 +16,7 @@ const markdown = `![Players Online](https://img.shields.io/badge/Players%20Onlin
 // Now use the 'markdown' variable where appropriate
 
   // Write the badge URL to a file (badge.md)
-  fs.writeFileSync('badge.md', `[![Players Online](${badgeUrl})](https://sites.google.com/view/sunrise-network/home)`);
+  fs.writeFileSync('badge.md', `[![Players Online](${badgeUrl})](https://sites.google.com/view/skyenetwork/home)`);
 }
 
 updateBadge();
